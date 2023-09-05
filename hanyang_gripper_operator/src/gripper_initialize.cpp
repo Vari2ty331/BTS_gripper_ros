@@ -34,9 +34,10 @@ void GripperInit::joint_trajectory_callback(const trajectory_msgs::JointTrajecto
 void GripperInit::dynamixel_state_callback(const dynamixel_workbench_msgs::DynamixelStateListConstPtr &msg)
 {
     int32_t pos1 = msg->dynamixel_state[1].present_position;
-    int32_t pos2 = msg->dynamixel_state[2].present_position;
+    int32_t pos2 = msg->dynamixel_state[0].present_position;
     curr_position1 = pos1;
     curr_position2 = pos2;
+    ROS_INFO("%d,%d",curr_position1,curr_position2);
     if(!push_state)
     {
         move_finger_to_init();
@@ -60,20 +61,19 @@ bool GripperInit::move_finger_to_init(void)
     trajectory_msgs::JointTrajectory jnt_tra_msg;
     trajectory_msgs::JointTrajectoryPoint jnt_tra_point;
 
-    double pos_subtractor = 20;
-    double time_step = 1;
+    double pos_subtractor = 50;
+    double time_step = 0.1;
     
     jnt_tra_msg.joint_names.push_back(std::string("singleFinger"));
     jnt_tra_msg.joint_names.push_back(std::string("doubleFinger"));
     if(!init_state)
     {
-        jnt_tra_point.positions.push_back(curr_position1+pos_subtractor);
-        jnt_tra_point.positions.push_back(curr_position2+pos_subtractor);
+        jnt_tra_point.positions.push_back(curr_position1-pos_subtractor);
+        jnt_tra_point.positions.push_back(curr_position2-pos_subtractor);
         jnt_tra_point.time_from_start.fromSec(time_step);
         jnt_tra_msg.points.push_back(jnt_tra_point);
         init_move_pub_.publish(jnt_tra_msg);
     }
-    ROS_INFO("%d,%d",curr_position1,curr_position2);
     return true;
 }
 

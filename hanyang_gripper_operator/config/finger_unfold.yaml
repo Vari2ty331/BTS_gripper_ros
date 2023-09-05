@@ -1,5 +1,5 @@
 joint:
-  names: [pan, tilt]
+  names: [singleFinger, doubleFinger]
 motion:
   names: [right, zero, left, return]
   right:
