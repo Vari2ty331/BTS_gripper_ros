@@ -1,0 +1,3 @@
+float64 allFinger
+float64 doubleFinger
+float64 singleFinger

@@ -1,0 +1,5 @@
+<launch>
+  <arg name="namespace"               default="hanyang_gripper"/>
+  <!-- <node name="wheel_operator" pkg="dynamixel_workbench_operators" type="wheel_operator" required="true" output="screen" ns="$(arg namespace)"/> -->
+  <node name="velocity_operator" pkg="hanyang_gripper_operator" type="velocity_operator" required="true" output="screen" ns="hanyang_gripper"/>
+</launch>

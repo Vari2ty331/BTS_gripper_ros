@@ -1,0 +1,17 @@
+joint:
+  names: [pan, tilt]
+motion:
+  names: [right, zero, left, return]
+  right:
+    step: [0, 0]  # 2048 per pi
+    time_from_start: 1.0  # sec
+  zero:
+    step: [2048, 2048]
+    time_from_start: 3.0
+  left:
+    step: [4096, 4096]
+    time_from_start: 6.0
+  return:
+    step: [0, 0]
+    time_from_start: 10.0
+

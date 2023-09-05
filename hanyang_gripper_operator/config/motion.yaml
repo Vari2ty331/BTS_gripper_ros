@@ -1,0 +1,8 @@
+joint:
+  names: [singleFinger, doubleFinger]
+motion:
+  names: [grip]
+  grip:
+    step: [1000, 2500]  # radian
+    time_from_start: 2.0  # sec
+

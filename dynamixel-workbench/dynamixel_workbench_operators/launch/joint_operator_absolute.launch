@@ -1,0 +1,15 @@
+<launch>
+  <arg name="namespace"               default="dynamixel_workbench"/>
+  <arg name="is_loop"               default="false"/>
+
+  <param name="$(arg namespace)/trajectory_info" value="$(find dynamixel_workbench_operators)/config/motion_absolute.yaml"/>
+  <param name="$(arg namespace)/initialize_to_max" value="$(find dynamixel_workbench_operators)/config/initialize_to_max.yaml"/>
+  <param name="$(arg namespace)/finger_fold" value="$(find dynamixel_workbench_operators)/config/finger_fold.yaml"/>
+  <param name="$(arg namespace)/finger_unfold" value="$(find dynamixel_workbench_operators)/config/finger_unfold.yaml"/>
+  <param name="$(arg namespace)/grip_to_size" value="$(find dynamixel_workbench_operators)/config/grip_to_size.yaml"/>
+
+  <node name="joint_operator" pkg="dynamixel_workbench_operators" type="joint_operator_tasks"
+        required="true" output="screen" ns="$(arg namespace)">
+    <param name="is_loop" value="$(arg is_loop)"/>
+  </node>
+</launch>

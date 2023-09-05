@@ -1,0 +1,17 @@
+joint:
+  names: [singleFinger, doubleFinger]
+motion:
+  names: [right, zero, left, return]
+  right:
+    step: [2048, 2048]  # 2048 per pi
+    time_from_start: 2.0  # sec
+  zero:
+    step: [0, 0]
+    time_from_start: 3.0
+  left:
+    step: [-2048, -2048]
+    time_from_start: 6.0
+  return:
+    step: [2048, 2048]
+    time_from_start: 12.0
+
