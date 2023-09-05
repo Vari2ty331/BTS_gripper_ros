@@ -28,8 +28,8 @@ GripOperator::GripOperator()
   rel_pos_msg_ = new hanyang_gripper_operator::dish_size_msg;
 
   bool result = getTrajectoryInfo(yaml_file, jnt_tra_msg_);
-  bool result2 = get_rel_PosInfo(yaml_file, rel_pos_msg_);
-  if (result||result2 == false)
+  // bool result2 = get_rel_PosInfo(yaml_file, rel_pos_msg_);
+  if (result == false)
   {
     ROS_ERROR("Please check YAML file");
     exit(0);

@@ -8,7 +8,7 @@
   <param name="$(arg namespace)/finger_unfold" value="$(find hanyang_gripper_operator)/config/finger_unfold.yaml"/>
   <param name="$(arg namespace)/grip_to_size" value="$(find hanyang_gripper_operator)/config/grip_to_size.yaml"/>
 
-  <node name="gripper_operator" pkg="hanyang_gripper_operator" type="gripper_operator"
+  <node name="grip_operator" pkg="hanyang_gripper_operator" type="grip_operator"
         required="true" output="screen" ns="hanyang_gripper">
     <param name="is_loop" value="$(arg is_loop)"/>
   </node>
